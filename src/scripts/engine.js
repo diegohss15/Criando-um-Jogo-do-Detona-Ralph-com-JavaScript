@@ -24,16 +24,9 @@ function countDown(){
     if (state.values.curretTime <= 0){
         clearInterval(state.actions.countDownTimerId);
         clearInterval(state.actions.timerId);
-        alert("Game Over! O seu resultado foi: " + state.values.result);
+        alert("O seu resultado foi: " + state.values.result);
     }
 }
-
-function playSound(){
-    let audio = new Audio("./src/audios/hit.m4a");
-    audio.volume = 0.2;
-    audio.play();
-}
-
 
 function randomSquare(){
     state.view.squares.forEach((square) => {
@@ -54,7 +47,6 @@ function addListenerHitBox(){
                 state.values.result++
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
-                playSound();
             }
         })
     });
